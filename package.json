@@ -1,0 +1,28 @@
+{
+  "name": "super-fitness-calendar",
+  "version": "1.0.0",
+  "description": "Fitness calendar",
+  "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3001"
+    }
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "author": "grupa3",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.13.9",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "validator": "^9.2.0"
+  }
+}
