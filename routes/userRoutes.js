@@ -18,15 +18,15 @@ module.exports = app => {
     })
   })
 
-  app.post('/api/activities', (req, res, next) => {
-    const { name, type, date, time, user } = req.body;
+  app.post('/api/activities', requireAuth, (req, res, next) => {
+    const { name, type, date, time} = req.body;
 
     if ( !name || !type || !date || !time){
       return res.status(409).send({error: 'Missing parameters'})
     }
 
-    const activity = new Activity({name, type, date, time, user});
-    console.log(activity);
+    const activity = new Activity({name, type, date, time, user:req.user.id});
+    
     activity.save().then(() => {
         res.send(activity);
       }).catch(error => {
