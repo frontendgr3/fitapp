@@ -18,7 +18,7 @@ module.exports = app => {
     })
   })
 
-  app.post('/api/activities', requireAuth, (req, res, next) => {
+  app.post('/api/activity', requireAuth, (req, res, next) => {
     const { name, type, date, time} = req.body;
 
     if ( !name || !type || !date || !time){
@@ -32,6 +32,57 @@ module.exports = app => {
       }).catch(error => {
         return res.status(422).send({error: error._message});
       })
+  });
+
+  app.get('/api/activity', requireAuth, (req, res, next) => {
+    const { id } = req.body;
+
+    if(!id) {
+      return res.status(409).send({error: 'Missing id'});
+    }
+
+    Activity.findById(id).then(activity => {
+
+      if (!activity) {
+        return res.status(404).send({ error: 'Activity not found' })
+      }
+
+      if (activity.user != req.user.id) {
+        return res.status(403).send({ error: 'Fetch forbidded' })
+      }
+
+      return res.status(200).send(activity);
+
+    }).catch(error => {
+      return res.status(400).send(error)
+    });
+
+  });
+
+  app.delete('/api/activity', requireAuth, (req, res, next) => {
+    const { id } = req.body;
+
+    if (!id) {
+      return res.status(409).send({error: 'Missing id'});
+    }
+
+    Activity.findById(id).then(activity => {
+
+      if (!activity) {
+        return res.status(404).send({ error: 'Activity not found' })
+      }
+
+      if (activity.user != req.user.id) {
+        return res.status(403).send({ error: 'Delete forbidded' })
+      }
+
+      return Activity.findByIdAndRemove(id);
+
+    }).then(() => {
+      return res.status(204).send();
+    }).catch(error => {
+      return res.status(400).send()
+    });
   });
 
 }
