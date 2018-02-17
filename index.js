@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 const keys = require('./config/keys');
 
+const cors = require('cors');
+
 const app = express();
 
 require('./models/User');
@@ -20,6 +22,8 @@ mongoose.connect(keys.mongoURI, {useMongoClient: true});
 app.use(bodyParser.json());
 
 app.use(passport.initialize());
+
+app.use(cors());
 
 
 
