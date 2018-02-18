@@ -18,14 +18,16 @@ const tokenForUser = (user) => {
 
 module.exports = app => {
   
-  app.get('/secured',requireAuth, (req, res, next) => {
-    res.send('Secured route.')
-  })
-
+  /**
+   * Sprawdza czy podane danę są prawidłowe i zwraca token
+   */
   app.post('/api/auth/login',requireSignin, (req, res, next) => {
     res.send({token: tokenForUser(req.user)});
   });
 
+  /**
+   * Rejestruje nowego użytkownika i zwraca token
+   */
   app.post('/api/auth/register', (req, res, next) => {
 
     const { username, password, provider } = req.body;
