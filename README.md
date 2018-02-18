@@ -1,7 +1,8 @@
 # fitapp
 Kalendarz fitness - wspólne projekty grupa 3
+Live: https://fitcalendar.herokuapp.com/
 
-### Dokumentacja API
+## Dokumentacja API
 
 **POST  /api/auth/register**  - rejestruje nowego użytkownika i dodaje go do bazy 
 
