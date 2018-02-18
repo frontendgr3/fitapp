@@ -8,6 +8,9 @@ const requireAuth = passport.authenticate('jwt', {session: false});
 
 module.exports = app => {
 
+  /**
+   * Zwraca wszystkie aktywności użytkownika
+   */
   app.get('/api/activities',requireAuth, (req, res, next) => {
     console.log(req.user);
     Activity.find({user: req.user}).then(activities => {
@@ -18,6 +21,9 @@ module.exports = app => {
     })
   })
 
+  /**
+   * Dodaje aktywność zalogowanego użytkownika
+   */
   app.post('/api/activity', requireAuth, (req, res, next) => {
     const { name, type, date, time} = req.body;
 
@@ -34,6 +40,9 @@ module.exports = app => {
       })
   });
 
+  /**
+   * Pobiera aktywność zalogowanego użytkownika
+   */
   app.get('/api/activity', requireAuth, (req, res, next) => {
     const { id } = req.body;
 
@@ -59,6 +68,9 @@ module.exports = app => {
 
   });
 
+  /**
+   * Usuwa aktywność zalogowanego użytkownika
+   */
   app.delete('/api/activity', requireAuth, (req, res, next) => {
     const { id } = req.body;
 
