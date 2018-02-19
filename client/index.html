@@ -1,1 +1,43 @@
-<h1>Strona główna</h1>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+
+
+<nav id="offcanvas" class="navigation">
+    <a href="javascript:void(0)" class="closebtn" onclick="navclose()">&times;</a>
+    <div class="user">
+        <img class="profile_picture" src="img/user.png"/>
+       <p>Hi <span>User</span></p>
+    </div>
+    <a href="#">Profile</a>
+    <a href="#">Workouts</a>
+    <a href="#">About</a>
+    <a href="#">Log out</a>
+  </nav>
+  
+  <!-- Use any element to open the sidenav -->
+  <button class="hamburger" onclick="navopen()">Menu</button>
+  
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+  <div id="main">
+    ...
+  </div> 
+
+
+
+  <script>
+
+function navopen() {
+    document.getElementById("offcanvas").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+
+function navclose() {
+    document.getElementById("offcanvas").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "#fff";
+}
+
+ </script>
