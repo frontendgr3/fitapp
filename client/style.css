@@ -1,4 +1,4 @@
-body {
+    body {
     font-size: 10px;
     font-family: "Lato", sans-serif;
     transition: background-color .5s;
@@ -28,10 +28,12 @@ body {
     color: #00c498;
     text-align: center;
 }
-.closebtn{
+
+.closebtn {
     font-size: 5.0rem;
 }
-.user{
+
+.user {
     margin: 10px 0;
     display: flex;
     flex-direction: column;
@@ -42,16 +44,16 @@ body {
 }
 
 .profile_picture {
-width: 50px;
-height: 50px;
-margin: auto;
+    width: 50px;
+    height: 50px;
+    margin: auto;
 }
 
-.user span{
+.user span {
     color: #00c498;
 }
 
-.hamburger{
+.hamburger {
     color: #00c498;
     font-size: 2.0rem;
     background: transparent;
@@ -65,6 +67,14 @@ margin: auto;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+[v-cloak] {
+    display: none;
 }
