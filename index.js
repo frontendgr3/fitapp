@@ -25,12 +25,9 @@ app.use(passport.initialize());
 
 app.use(cors());
 
-
-
 require('./routes/authRoutes')(app);
 require('./routes/userRoutes')(app);
-
-
+var aaa = require('./routes/registerRoutes')(app);
 
 app.use(express.static('client'));
 
