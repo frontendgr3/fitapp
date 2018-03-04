@@ -75,6 +75,10 @@
     }
 }
 
+#calendar {
+    width: 60%;
+}
+
 [v-cloak] {
     display: none;
 }

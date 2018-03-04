@@ -4,6 +4,7 @@
     <script src='min/jquery.min.js'></script>
     <script src='min/moment.min.js'></script>
     <script src='js/fullcalendar.js'></script>
+    <script src='js/fitapp.js'></script>
 </head>
 
 
@@ -16,6 +17,7 @@
     <a href="#">Profile</a>
     <a href="#">Workouts</a>
     <a href="#">About</a>
+    <a href="#" id="login">Log in</a>
     <a href="#">Log out</a>
   </nav>
   
@@ -24,17 +26,7 @@
   
   <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
   <div id="main">
-    <div id="calendar">
-        <script>
-            $(document).ready(function() {
-
-                // page is now ready, initialize the calendar...
-                $('#calendar').fullCalendar({
-                    // put your options and callbacks here
-                })        
-            });
-        </script>
-    </div>
+    <div id="calendar"></div>
   </div> 
 
 
