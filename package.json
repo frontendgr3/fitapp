@@ -13,13 +13,20 @@
     "server": "nodemon index.js"
   },
   "author": "grupa3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frontendgr3/fitapp"
+  },
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "fullcalendar": "^3.8.2",
+    "jquery": "^3.3.1",
     "jwt-simple": "^0.5.1",
+    "moment": "^2.21.0",
     "mongoose": "^4.13.9",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
